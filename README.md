@@ -10,7 +10,7 @@ A GitHub action to create or update an issue or pull request comment.
 
 ```yml
       - name: Create comment
-        uses: peter-evans/create-or-update-comment@v3
+        uses: 
         with:
           issue-number: 1
           body: |
@@ -26,7 +26,7 @@ A GitHub action to create or update an issue or pull request comment.
 
 ```yml
       - name: Update comment
-        uses: peter-evans/create-or-update-comment@v3
+        uses: 
         with:
           comment-id: 557858210
           body: |
@@ -38,7 +38,7 @@ A GitHub action to create or update an issue or pull request comment.
 
 ```yml
       - name: Add reactions
-        uses: peter-evans/create-or-update-comment@v3
+        uses: 
         with:
           comment-id: 557858210
           reactions: |
@@ -113,7 +113,8 @@ If the find-comment action output `comment-id` returns an empty string, a new co
 If it returns a value, the comment already exists and the content is replaced.
 ```yml
     - name: Find Comment
-      uses: peter-evans/find-comment@v2
+      uses: 
+     
       id: fc
       with:
         issue-number: ${{ github.event.pull_request.number }}
@@ -134,7 +135,7 @@ If it returns a value, the comment already exists and the content is replaced.
 If required, the create and update steps can be separated for greater control.
 ```yml
     - name: Find Comment
-      uses: peter-evans/find-comment@v2
+      uses: 
       id: fc
       with:
         issue-number: ${{ github.event.pull_request.number }}
@@ -152,7 +153,7 @@ If required, the create and update steps can be separated for greater control.
 
     - name: Update comment
       if: steps.fc.outputs.comment-id != ''
-      uses: peter-evans/create-or-update-comment@v3
+      uses: 
       with:
         comment-id: ${{ steps.fc.outputs.comment-id }}
         body: |
@@ -164,7 +165,7 @@ If required, the create and update steps can be separated for greater control.
 
 ```yml
       - name: Create comment
-        uses: peter-evans/create-or-update-comment@v3
+        uses: 
         with:
           issue-number: 1
           body-path: 'comment-body.md'
@@ -190,7 +191,7 @@ The template is rendered using the [render-template](https://github.com/chuhlomi
             bar: that
 
       - name: Create comment
-        uses: peter-evans/create-or-update-comment@v3
+        uses: 
         with:
           issue-number: 1
           body: ${{ steps.template.outputs.result }}
